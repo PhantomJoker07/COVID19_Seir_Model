@@ -25,7 +25,7 @@ m_days[0] = 18 #Días hasta las primeras medidas
 m_days[1] = 23 #Días hasta la 2da medida mayor (Pendiente>>MEJORAR VALORES)
 m_days[2] = 30 #cuarentena total hipotética
 
-daysTotal = 60 #Días analizados 
+daysTotal = 28 #Días analizados 
  
 gamma = 1/7 #valor cambiante 
 #gamma es la tasa de recuperación: 1/gamma será el período de tiempo medio (en días) de recuperación (pasa a ser no infector)
@@ -35,7 +35,7 @@ sigma = 1/5  #valor promedio relativamente fiel
 
 r1 = 2.68 #Tasa básica de reproducción del COVID19 sin medidas tomadas, sería beta/gamma y algunas versiones del modelo usan r0 en vez de beta
 # r es otro de los parámetros difíciles de estimar y que varía bastante, supuestamente r0 = 2.68 
-r0 = 5.7 #Valor aproximado con los resultados reales
+r0 = 6.3 #Valor aproximado con los resultados reales
 # en este caso tomamos r0 mucho mayor por causa de la cantidad de entradas de nuevos casos extranjeros y r1 será 2.68
 
 beta0 = r0*gamma #Tasa de transmición inicial media sin medidas tomadas
@@ -53,6 +53,9 @@ alfa[2] = 0.5 #cuarentena de ~ 0.5?
 
 k = 1117.3
 #intensidad de la reacción de los individuos 
+
+presympt_time = 5.2
+#Tiempo medio en que demora la aparición de los sintomas, tiempo de incubación
 
 noSymptoms = 0.35 
 #porciento de personas asintomáticas
@@ -78,7 +81,7 @@ CriticalRate = 0.05
 critical_lag = 5 #(Pendiente>>MEJORAR VALOR)
 #tiempo medio en días que un paciente hospitalizado pasa a estado crítico
 
-death_delay = 0 #(Pendiente>>MEJORAR VALOR)
+death_delay = 3 #(Pendiente>>MEJORAR VALOR)
 #tiempo medio en días que un paciente en estado crítico muere
 
 UCIFatalityRate = 0.023 # (Calculado en China)
@@ -92,7 +95,6 @@ Hosp = [0 for i in range(daysTotal)]
 
 Critical = [0 for i in range(daysTotal)]
 #array con la cantidad de casos críticos en un día dado     
-
 
 #Model
 
